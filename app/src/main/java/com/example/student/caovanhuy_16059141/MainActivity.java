@@ -1,5 +1,7 @@
 package com.example.student.caovanhuy_16059141;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText ed_tk, ed_mk;
     CheckBox cb;
-    Button bt_dn;
+    Button bt_dn,bt_t;
 
 
     @Override
@@ -36,5 +38,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        bt_t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              final AlertDialog.Builder alter= new AlertDialog.Builder(MainActivity.this);
+              alter.setTitle("thong bao");
+              alter.setMessage("ban co muon thoat");
+              alter.setPositiveButton("co", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+                      finish();
+                  }
+              });
+              alter.setNegativeButton("khong", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+
+                  }
+              });
+              AlertDialog dialog = alter.create();
+              dialog.show();
+
+            }
+        });
     }
+
 }
